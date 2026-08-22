@@ -839,13 +839,19 @@ function bukaWhatsApp(pesan) {
     const nomor = "6285795223949";
     const teks = encodeURIComponent(pesan);
 
-    const whatsappWeb =
+    const urlWhatsApp =
         "https://api.whatsapp.com/send?phone=" +
         nomor +
         "&text=" +
         teks;
 
-    window.location.href = whatsappWeb;
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("tiktok")) {
+        window.open(urlWhatsApp, "_blank");
+    } else {
+        window.location.href = urlWhatsApp;
+    }
 }
 
 </script>
