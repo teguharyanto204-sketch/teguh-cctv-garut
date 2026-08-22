@@ -839,19 +839,111 @@ function bukaWhatsApp(pesan) {
     const nomor = "6285795223949";
     const teks = encodeURIComponent(pesan);
 
-    const urlWhatsApp =
+    const userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.includes("tiktok")) {
+
+        const konfirmasi = document.createElement("div");
+
+        konfirmasi.innerHTML = `
+            <div style="
+                position:fixed;
+                inset:0;
+                background:rgba(0,0,0,0.65);
+                display:flex;
+                align-items:center;
+                justify-content:center;
+                z-index:99999;
+                padding:20px;
+            ">
+                <div style="
+                    background:#ffffff;
+                    color:#111111;
+                    width:100%;
+                    max-width:380px;
+                    border-radius:18px;
+                    padding:25px;
+                    text-align:center;
+                    box-shadow:0 15px 40px rgba(0,0,0,0.35);
+                    font-family:Arial,sans-serif;
+                ">
+                    <div style="font-size:42px;margin-bottom:10px;">💬</div>
+
+                    <h2 style="margin:0 0 10px;">
+                        Lanjut ke WhatsApp?
+                    </h2>
+
+                    <p style="
+                        margin:0 0 22px;
+                        color:#555;
+                        line-height:1.5;
+                    ">
+                        Anda akan diarahkan ke WhatsApp
+                        Teguh CCTV Garut untuk konsultasi.
+                    </p>
+
+                    <button id="lanjutWhatsApp" style="
+                        width:100%;
+                        padding:14px;
+                        border:0;
+                        border-radius:12px;
+                        background:#25D366;
+                        color:white;
+                        font-size:16px;
+                        font-weight:bold;
+                        cursor:pointer;
+                        margin-bottom:10px;
+                    ">
+                        LANJUTKAN
+                    </button>
+
+                    <button id="batalWhatsApp" style="
+                        width:100%;
+                        padding:12px;
+                        border:0;
+                        border-radius:12px;
+                        background:#eeeeee;
+                        color:#333;
+                        font-size:15px;
+                        cursor:pointer;
+                    ">
+                        KEMBALI
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(konfirmasi);
+
+        document
+            .getElementById("lanjutWhatsApp")
+            .onclick = function () {
+
+                const whatsappApp =
+                    "whatsapp://send?phone=" +
+                    nomor +
+                    "&text=" +
+                    teks;
+
+                window.location.href = whatsappApp;
+            };
+
+        document
+            .getElementById("batalWhatsApp")
+            .onclick = function () {
+                konfirmasi.remove();
+            };
+
+        return;
+    }
+
+    const whatsappWeb =
         "https://api.whatsapp.com/send?phone=" +
         nomor +
         "&text=" +
         teks;
 
-    const userAgent = navigator.userAgent.toLowerCase();
-
-    if (userAgent.includes("tiktok")) {
-        window.open(urlWhatsApp, "_blank");
-    } else {
-        window.location.href = urlWhatsApp;
-    }
+    window.location.href = whatsappWeb;
 }
 
 </script>
