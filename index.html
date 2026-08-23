@@ -497,6 +497,93 @@ footer {
         height: 54px;
     }
 }
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.testimonial-card {
+  background: #0d1b2a;
+  border: 1px solid rgba(0, 174, 255, 0.25);
+  border-radius: 18px;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+.testimonial-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #164e63;
+  color: #fff;
+  font-weight: bold;
+}
+
+.testimonial-info h3 {
+  margin: 0 0 5px;
+}
+
+.testimonial-info span {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.testimonial-stars {
+  margin: 14px 0;
+  letter-spacing: 2px;
+}
+
+.testimonial-text {
+  line-height: 1.6;
+  min-height: 100px;
+}
+
+.google-review {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  color: #9ddcff;
+}
+
+@media (max-width: 768px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+.testimonials-heading {
+  text-align: center;
+}
+.testimonials-heading {
+  text-align: center;
+  width: 100%;
+  }
+.testimonial-thanks {
+  text-align: center;
+  margin: 25px auto;
+}
+}.testimonials-heading {
+  text-align: center;
+  width: 100%;
+}
+
+.testimonial-thanks {
+  text-align: center;
+  margin: 25px auto;
+}
+
 </style>
 </head>
 
@@ -817,10 +904,7 @@ footer {
 
 </section>
 
-<footer>
-    © 2026 Teguh CCTV Garut
-    • Penjualan & Jasa Instalasi CCTV
-</footer>
+
 
 <a
     class="wa"
@@ -957,13 +1041,20 @@ function bukaWhatsApp(pesan) {
       <h2>Apa Kata Pelanggan Tentang<br>
         <strong>Teguh CCTV Garut</strong>
       </h2>
-      <p>
-        Kepuasan pelanggan adalah prioritas kami. Terima kasih atas
-        kepercayaan yang telah diberikan kepada Teguh CCTV Garut.
+      <div class="testimonial-thanks">
+      🛡️ Terima kasih telah mempercayakan keamanan kepada
+      <strong>Teguh CCTV Garut</strong>
+    </div>
+    <p>
+        Kepuasan pelanggan adalah prioritas kami. 
       </p>
       <div class="testimonials-line"></div>
     </div>
 
+    
+    
+
+    
     <div class="testimonial-grid">
 
       <!-- 1 -->
@@ -1080,12 +1171,12 @@ function bukaWhatsApp(pesan) {
 
     </div>
 
-    <div class="testimonial-thanks">
-      🛡️ Terima kasih telah mempercayakan keamanan kepada
-      <strong>Teguh CCTV Garut</strong>
-    </div>
+    
 
   </div>
+  <footer>
+  © 2026 Teguh CCTV Garut • Penjualan & Jasa Instalasi CCTV
+</footer>
 </section></body>
 </html>
 
